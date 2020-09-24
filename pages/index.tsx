@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 import ordinal from 'ordinal'
 import Confetti, { ConfettiConfig } from 'react-dom-confetti'
 
@@ -30,20 +31,25 @@ export default function Index({ count }: IndexProps) {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>
-        Congrats, you're the {ordinal(count)} person to click the button!
-      </h1>
-      <p className={styles.github}>
-        I see you've found my <b>pointless profile button project</b>. Since I
-        now know you're the type of person who likes clicking buttons, it would
-        mean a lot if you{' '}
-        <a href="https://github.com/jdtzmn/pointless-profile-button">
-          starred this project's GitHub repository
-        </a>
-        .
-      </p>
-      <Confetti active={confetti} config={config} />
-    </div>
+    <>
+      <Head>
+        <title>Pointless Profile Button</title>
+      </Head>
+      <div className={styles.container}>
+        <h1 className={styles.header}>
+          Congrats, you're the {ordinal(count)} person to click the button!
+        </h1>
+        <p className={styles.github}>
+          I see you've found my <b>pointless profile button project</b>. Since I
+          now know you're the type of person who likes clicking buttons, it
+          would mean a lot if you{' '}
+          <a href="https://github.com/jdtzmn/pointless-profile-button">
+            starred this project's GitHub repository
+          </a>
+          .
+        </p>
+        <Confetti active={confetti} config={config} />
+      </div>
+    </>
   )
 }
