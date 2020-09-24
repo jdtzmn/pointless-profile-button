@@ -1,10 +1,10 @@
 import abbreviate from 'number-abbreviate'
 
 export default class Button {
-  private width = 288
-  private height = 48
+  private readonly width = 280
+  private readonly height = 40
 
-  constructor(private count: number) {}
+  constructor(private readonly count: number) {}
 
   render() {
     const abbreviatedCount: string = abbreviate(this.count, 1)
@@ -18,16 +18,17 @@ export default class Button {
       >
         <style>
           .button-text {
-            font-size: 0.95em;
+            font-size: 14px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
             Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial,
             sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-weight: 500;
           }
         </style>
         <rect
           x="0.5"
           y="0.5"
-          rx="16"
+          rx="6"
           height="99%"
           stroke="#E4E2E2"
           width="${this.width - 1}"
