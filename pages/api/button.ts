@@ -7,5 +7,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const button = new Button(count)
 
   res.setHeader('Content-Type', 'image/svg+xml')
-  res.send(button.render())
+  res.setHeader(
+    'Cache-Control',
+    'Cache-Control: s-maxage=1, stale-while-revalidate'
+  )
+  res.status(200).send(button.render())
 }
