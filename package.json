@@ -9,8 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate": "prisma generate --schema=./db/schema.prisma",
-    "migrate": "prisma migrate save --experimental --schema=./db/schema.prisma && prisma migrate up --experimental --schema=./db/schema.prisma"
+    "generate": "prisma generate",
+    "migrate": "prisma migrate save --experimental && prisma migrate up --experimental"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +43,9 @@
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "typescript": "^4.0.3"
+  },
+  "prisma": {
+    "schema": "db/schema.prisma"
   },
   "prettier": {
     "semi": false,
