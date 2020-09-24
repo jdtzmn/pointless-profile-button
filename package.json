@@ -1,0 +1,88 @@
+{
+  "name": "pointless-profile-button",
+  "version": "1.0.0",
+  "description": "a button for GitHub README.md profiles that counts the number of times it was clicked",
+  "repository": "https://github.com/jdtzmn/pointless-profile-button.git",
+  "author": "jdtzmn <jdtzmn@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate": "prisma generate --schema=./db/schema.prisma",
+    "migrate": "prisma migrate save --experimental --schema=./db/schema.prisma && prisma migrate up --experimental --schema=./db/schema.prisma"
+  },
+  "private": true,
+  "dependencies": {
+    "@prisma/client": "^2.7.1",
+    "next": "^9.5.3",
+    "number-abbreviate": "^2.0.0",
+    "ordinal": "^1.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-dom-confetti": "^0.2.0",
+    "sass": "^1.26.11"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.7.1",
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.49",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard-jsx": "^8.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-config-standard-with-typescript": "^19.0.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.1",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react"
+    ],
+    "extends": [
+      "standard-with-typescript",
+      "standard-jsx",
+      "standard-react",
+      "prettier",
+      "prettier/@typescript-eslint",
+      "prettier/react",
+      "prettier/standard"
+    ],
+    "rules": {
+      "@typescript-eslint/no-redeclare": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-extraneous-class": "off",
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/triple-slash-reference": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,css,md,json}": "prettier --write"
+  }
+}

@@ -1,0 +1,12 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Count {
+  static Int @id @default(1) // a way to access only one count row
+  at Int
+}
