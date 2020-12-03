@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 
 export default class Count {
   private static async getRow(prisma: PrismaClient) {
-    return await prisma.count.findOne({
+    return await prisma.count.findUnique({
       where: {
         static: 1,
       },
